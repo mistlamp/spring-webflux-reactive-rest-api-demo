@@ -34,6 +34,11 @@ public class TweetController {
         return tweetRepository.save(tweet);
     }
 
+    @PostMapping("/tweets1")
+    public Mono<Tweet> createTweets1(@Valid @RequestBody Tweet tweet) {
+        return tweetRepository.save(tweet);
+    }
+
     @GetMapping("/tweets/{id}")
     public Mono<ResponseEntity<Tweet>> getTweetById(@PathVariable(value = "id") String tweetId) {
         return tweetRepository.findById(tweetId)
